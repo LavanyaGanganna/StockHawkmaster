@@ -67,7 +67,7 @@ public class HistoricalDatas extends AsyncTask<Void, Void, ArrayList<HistoricDat
 	@Override
 	protected ArrayList<HistoricDataParcelable> doInBackground(Void... params) {
 		Request.Builder builder = new Request.Builder();
-		if (choice.equals("sixmonth"))
+		if (choice.equals(mcontext.getString(com.example.android.stockhawk.R.string.sixmonth)))
 			END_URL = "/chartdata;type=quote;range=6m/json";
 
 		builder.url(BASE_URL + symbolname + END_URL);
@@ -79,7 +79,7 @@ public class HistoricalDatas extends AsyncTask<Void, Void, ArrayList<HistoricDat
 			try {
 				//	Long start = System.currentTimeMillis();
 				if (stockdata.equals(null)) {
-					Log.d(TAG, "the stock json string is null");
+					//	Log.d(TAG, "the stock json string is null");
 					return null;
 				}
 				historicdata = parsingStockData(stockdata);

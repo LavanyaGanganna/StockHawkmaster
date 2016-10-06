@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.android.stockhawk.R;
 import com.google.android.gms.gcm.TaskParams;
 
 /**
@@ -26,7 +27,7 @@ public class StockIntentService extends IntentService {
 		StockTaskService stockTaskService = new StockTaskService(this);
 		Bundle args = new Bundle();
 		if (intent.getStringExtra("tag").equals("add")) {
-			args.putString("symbol", intent.getStringExtra("symbol"));
+			args.putString(getString(R.string.symbol), intent.getStringExtra(getString(R.string.symbol)));
 		}
 		// We can call OnRunTask from the intent service to force it to run immediately instead of
 		// scheduling a task.

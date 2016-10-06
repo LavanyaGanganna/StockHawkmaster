@@ -62,6 +62,21 @@
     <string name="action_change_units_description" translatable="true">Change units from percent to
         Dollar
     </string>
+    <string name="widget_symbols" translatable="false">symbols</string>
+    <string name="widget_bid" translatable="false">bidvalue</string>
+    <string name="widget_changes" translatable="false">changes</string>
+    <string name="widget_company" translatable="false">company</string>
+    <string name="sixmonth" translatable="false">sixmonth</string>
+    <string name="week_time" translatable="false">week</string>
+    <string name="tagstr" translatable="false">tag</string>
+    <string name="symbol" translatable="false">symbol</string>
+    <string name="periodic" translatable="false">periodic</string>
+    <string name="day" translatable="false">day</string>
+    <string name="oneyear" translatable="false">1year</string>
+    <string name="graphstr" translatable="true">Days stock graph</string>
+    <string name="comparestr" translatable="true">Comparision stock graph</string>
+    <string name="add" translatable="false">add</string>
+    <string name="init" translatable="false">init</string>
     <string-array name="timeperiod_array">
         <item>1D</item>
         <item>1W</item>

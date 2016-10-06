@@ -63,14 +63,14 @@ public class StockDetailsActivity extends Activity implements HistoricSingleData
 		//getActionBar().setDisplayHomeAsUpEnabled(true);
 		ButterKnife.bind(this);
 		Intent intent = getIntent();
-		String companynam = intent.getStringExtra("company");
+		String companynam = intent.getStringExtra(getString(R.string.widget_company));
 		if (companynam.length() >= 22)
 			symbols.setText(companynam.substring(0, 21));
 		else
 			symbols.setText(companynam);
 
-		symbolname = intent.getStringExtra("symbols");
-		String maxvalue = String.format(getString(R.string.format_closeval), intent.getStringExtra("bidvalue"));
+		symbolname = intent.getStringExtra(getString(R.string.widget_symbols));
+		String maxvalue = String.format(getString(R.string.format_closeval), intent.getStringExtra(getString(R.string.widget_bid)));
 		maxtext.setText(maxvalue);
 		todaytext.setText(Utils.converttodaydate());
 		//ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.timeperiod_array,android.R.layout.simple_spinner_item);
@@ -83,14 +83,14 @@ public class StockDetailsActivity extends Activity implements HistoricSingleData
 				String choice = null;
 				switch (position) {
 					case 0:
-						choice = "day";
+						choice = getString(R.string.day);
 						todaytext.setText(Utils.converttodaydate());
 						todaytext.setText(Utils.converttodaydate());
 						HistoricSingleDatas historicSingleDatas = new HistoricSingleDatas(symbolname, detprogress, choice, getApplicationContext(), StockDetailsActivity.this);
 						historicSingleDatas.execute();
 						break;
 					case 1:
-						choice = "week";
+						choice = getString(R.string.week_time);
 						todaytext.setText(Utils.converttodaydate());
 						todaytext.setContentDescription(Utils.converttodaydate());
 						HistoricSingleDatas historicSingleDatasweek = new HistoricSingleDatas(symbolname, detprogress, choice, getApplicationContext(), StockDetailsActivity.this);
@@ -98,13 +98,13 @@ public class StockDetailsActivity extends Activity implements HistoricSingleData
 						break;
 
 					case 2:
-						choice = "sixmonth";
+						choice = getString(R.string.sixmonth);
 						HistoricalDatas historicdatsmon = new HistoricalDatas(symbolname, detprogress, choice, getApplicationContext(), StockDetailsActivity.this);
 						historicdatsmon.execute();
 
 						break;
 					case 3:
-						choice = "1year";
+						choice = getString(R.string.oneyear);
 						HistoricalDatas historicdasyear = new HistoricalDatas(symbolname, detprogress, choice, getApplicationContext(), StockDetailsActivity.this);
 						historicdasyear.execute();
 						break;
@@ -152,7 +152,7 @@ public class StockDetailsActivity extends Activity implements HistoricSingleData
 			//linechart.setGridBackgroundColor(Color.rgb(25, 118, 210));
 			linechart.setGridBackgroundColor(Color.WHITE);
 			linechart.setDescriptionColor(Color.BLACK);
-			linechart.setDescription("Days stock graph");
+			linechart.setDescription(getString(R.string.graphstr));
 			String name = getResources().getString(R.string.stock);
 			LineDataSet dataSet = new LineDataSet(entries, name);
 			dataSet.setColor(getResources().getColor(R.color.light_purple));
@@ -222,7 +222,7 @@ public class StockDetailsActivity extends Activity implements HistoricSingleData
 			linechart.setDrawGridBackground(true);
 			linechart.setGridBackgroundColor(Color.WHITE);
 			linechart.setDescriptionColor(Color.BLACK);
-			linechart.setDescription("Comparision stock graph");
+			linechart.setDescription(getString(R.string.comparestr));
 			String name = getResources().getString(R.string.stock);
 			LineDataSet dataSet = new LineDataSet(entries, name);
 			dataSet.setColor(getResources().getColor(R.color.light_purple));

@@ -121,6 +121,7 @@ public class Utils {
 			Date currenTimeZone = (Date) calendar.getTime();
 			return sdf.format(currenTimeZone);
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return "";
 	}

@@ -141,11 +141,11 @@ public class StockTaskService extends GcmTaskService {
 
 		if (urlStringBuilder != null) {
 			urlString = urlStringBuilder.toString();
-			Log.d(TAG,"the url is" + urlString);
+			Log.d(TAG, "the url is" + urlString);
 			try {
 
 				getResponse = fetchData(urlString);
-				Log.d(TAG,"the json" + getResponse);
+				Log.d(TAG, "the json" + getResponse);
 				result = GcmNetworkManager.RESULT_SUCCESS;
 				try {
 					ContentValues contentValues = new ContentValues();
@@ -168,7 +168,7 @@ public class StockTaskService extends GcmTaskService {
 					//         Utils.quoteJsonToContentVals(getResponse));
 
 					if (!foundnull) {
-							mContext.getContentResolver().applyBatch(QuoteProvider.AUTHORITY, contentarrlist);
+						mContext.getContentResolver().applyBatch(QuoteProvider.AUTHORITY, contentarrlist);
 						if (!isUpdate) {
 							new Thread(new Runnable() {
 								@Override

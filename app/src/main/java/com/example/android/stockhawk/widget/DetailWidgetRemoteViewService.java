@@ -84,10 +84,10 @@ public class DetailWidgetRemoteViewService extends RemoteViewsService {
 				views.setTextViewText(R.id.bid_price_widget, bidpri);
 				views.setTextViewText(R.id.change_widget, change);
 				Bundle bundle = new Bundle();
-				bundle.putString("symbols", symbolnm);
-				bundle.putString("bidvalue", bidpri);
-				bundle.putString("changes", change);
-				bundle.putString("company", company);
+				bundle.putString(getString(com.example.android.stockhawk.R.string.widget_symbols), symbolnm);
+				bundle.putString(getString(com.example.android.stockhawk.R.string.widget_bid), bidpri);
+				bundle.putString(getString(com.example.android.stockhawk.R.string.widget_changes), change);
+				bundle.putString(getString(com.example.android.stockhawk.R.string.widget_company), company);
 				final Intent fillInIntent = new Intent();
 				fillInIntent.putExtras(bundle);
 				views.setOnClickFillInIntent(R.id.widget_list_item, fillInIntent);

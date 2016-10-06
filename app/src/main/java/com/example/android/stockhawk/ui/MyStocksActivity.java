@@ -136,9 +136,9 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 						symbolname = mCursor.getString(mCursor.getColumnIndexOrThrow(QuoteColumns.SYMBOL));
 						Log.d(TAG, "the symbol name is" + symbolname + companyname);
 						Intent intent = new Intent(MyStocksActivity.this, StockDetailsActivity.class);
-						intent.putExtra("symbols", symbolname);
-						intent.putExtra("company", companyname);
-						intent.putExtra("bidvalue", mCursor.getString(mCursor.getColumnIndexOrThrow(QuoteColumns.BIDPRICE)));
+						intent.putExtra(getString(R.string.widget_symbols), symbolname);
+						intent.putExtra(getString(R.string.widget_company), companyname);
+						intent.putExtra(getString(R.string.widget_bid), mCursor.getString(mCursor.getColumnIndexOrThrow(QuoteColumns.BIDPRICE)));
 						startActivity(intent);
 					}
 				}));
@@ -175,7 +175,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 										} else {
 											// Add the stock to DB
 											mServiceIntent.putExtra("tag", "add");
-											mServiceIntent.putExtra("symbol", input.toString().toUpperCase());
+											mServiceIntent.putExtra(getString(R.string.symbol), input.toString().toUpperCase());
 											startService(mServiceIntent);
 										}
 									}
@@ -196,7 +196,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 		if (isConnected) {
 			long period = 3600L;
 			long flex = 10L;
-			String periodicTag = "periodic";
+			String periodicTag = getString(R.string.periodic);
 
 			// create a periodic task to pull stocks once every hour after the app has been opened. This
 			// is so Widget data stays up to date.

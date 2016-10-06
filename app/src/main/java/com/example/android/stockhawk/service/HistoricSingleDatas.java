@@ -80,7 +80,7 @@ public class HistoricSingleDatas extends AsyncTask<Void, Void, ArrayList<SingleD
 	@Override
 	protected ArrayList<SingleDayData> doInBackground(Void... params) {
 		Request.Builder builder = new Request.Builder();
-		if (choices.equals("week")) {
+		if (choices.equals(mcontext.getString(com.example.android.stockhawk.R.string.week_time))) {
 			END_URL = "/chartdata;type=quote;range=7d/json";
 		}
 
@@ -94,7 +94,7 @@ public class HistoricSingleDatas extends AsyncTask<Void, Void, ArrayList<SingleD
 			try {
 				//	Long start = System.currentTimeMillis();
 				if (stockdata.equals(null)) {
-					Log.d(TAG, "the stock json string is null");
+					//Log.d(TAG, "the stock json string is null");
 					return null;
 				}
 				singledaydata = parsingStockData(stockdata);
