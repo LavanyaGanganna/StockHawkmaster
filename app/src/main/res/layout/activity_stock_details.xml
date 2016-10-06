@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.stockhawk.ui.StockDetailsActivity">
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+        <View android:layout_width="match_parent"
+              android:layout_height="70dp"
+              android:background="@color/material_blue_500"/>
+        <TextView android:id="@+id/symbolname"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="start"
+                  android:paddingLeft="@dimen/gap_width"
+                  android:paddingRight="@dimen/gap_width"
+                  android:paddingStart="@dimen/gap_width"
+                  android:textColor="@android:color/white"
+                  android:textSize="@dimen/company_size"
+                  tools:text="GOOGL"/>
+        <Spinner android:id="@+id/spinner"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="end"/>
+
+    </FrameLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <TextView android:id="@+id/maxcloseval"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:text="@string/closed_val"
+                  android:textColor="@android:color/black"
+                  android:textSize="16sp"/>
+        <TextView android:id="@+id/todaysdate"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:text="@string/todays_date"
+                  android:textColor="@android:color/black"
+                  android:textSize="16sp"/>
+    </LinearLayout>
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+        <com.github.mikephil.charting.charts.LineChart
+            xmlns:chart="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/linechart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/graph_content_description"/>
+
+        <ProgressBar android:id="@+id/detailprogress"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:visibility="gone"/>
+        <TextView
+            android:id="@+id/emptyView_acitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/data_not_available"
+            android:textSize="@dimen/emptysize"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+</LinearLayout>
