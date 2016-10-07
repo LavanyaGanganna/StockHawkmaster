@@ -77,6 +77,19 @@
     <string name="comparestr" translatable="true">Comparision stock graph</string>
     <string name="add" translatable="false">add</string>
     <string name="init" translatable="false">init</string>
+    <string name="onestr">1</string>
+    <string name="id" translatable="false">_id</string>
+    <string name="fontsroboto" translatable="false">fonts/Roboto-Light.ttf</string>
+    <string name="equalsquest" translatable="false">" = ?"</string>
+    <string name="equalque">= ?</string>
+    <string name="toasttext" translatable="true">This stock is already saved!</string>
+    <string name="adddatabase" translatable="true">Added to Database</string>
+    <string name="wronginput" translatable="true">wrong stock symbol input</string>
+    <string name="illegatstatement" translatable="false">This should only be called when Cursor is
+        valid
+    </string>
+    <string name="illegalstatements" translatable="false">"Could not move Cursor to position: "
+    </string>
     <string-array name="timeperiod_array">
         <item>1D</item>
         <item>1W</item>

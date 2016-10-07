@@ -41,7 +41,7 @@ public class RecyclerViewItemClickListener implements RecyclerView.OnItemTouchLi
 		View childView = view.findChildViewUnder(e.getX(), e.getY());
 		if (childView != null && listener != null && gestureDetector.onTouchEvent(e)) {
 			listener.onItemClick(childView, view.getChildPosition(childView));
-			Log.d(TAG, "inside Recyclerviewclick" + view.getChildPosition(childView));
+			//Log.d(TAG, "inside Recyclerviewclick" + view.getChildPosition(childView));
 			return true;
 		}
 		return false;

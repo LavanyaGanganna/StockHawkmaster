@@ -133,10 +133,10 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 						//TODO:
 						// do something on item click
 						mCursor.moveToPosition(position);
-						Log.d(TAG, "the position is" + position);
+						//	Log.d(TAG, "the position is" + position);
 						companyname = mCursor.getString(mCursor.getColumnIndexOrThrow(QuoteColumns.COMPANYNAME));
 						symbolname = mCursor.getString(mCursor.getColumnIndexOrThrow(QuoteColumns.SYMBOL));
-						Log.d(TAG, "the symbol name is" + symbolname + companyname);
+						//	Log.d(TAG, "the symbol name is" + symbolname + companyname);
 						Intent intent = new Intent(MyStocksActivity.this, StockDetailsActivity.class);
 						intent.putExtra(getString(R.string.widget_symbols), symbolname);
 						intent.putExtra(getString(R.string.widget_company), companyname);
@@ -162,13 +162,13 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 										// On FAB click, receive user input. Make sure the stock doesn't already exist
 										// in the DB and proceed accordingly
 										String inputstr = input.toString().toUpperCase();
-										Log.d(TAG, "the input is" + inputstr);
+										//Log.d(TAG, "the input is" + inputstr);
 										Cursor c = getContentResolver().query(QuoteProvider.Quotes.CONTENT_URI,
 												new String[]{QuoteColumns.SYMBOL}, QuoteColumns.SYMBOL + "= ?",
 												new String[]{inputstr}, null);
 										if (c.getCount() != 0) {
 											Toast toast =
-													Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
+													Toast.makeText(MyStocksActivity.this, R.string.toasttext,
 															Toast.LENGTH_LONG);
 											toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
 											toast.show();
@@ -313,7 +313,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 				new String[]{QuoteColumns._ID, QuoteColumns.SYMBOL, QuoteColumns.BIDPRICE,
 						QuoteColumns.PERCENT_CHANGE, QuoteColumns.CHANGE, QuoteColumns.ISUP, QuoteColumns.COMPANYNAME},
 				QuoteColumns.ISCURRENT + " = ?",
-				new String[]{"1"},
+				new String[]{getString(R.string.onestr)},
 				null);
 	}
 

@@ -1,5 +1,6 @@
 package com.example.android.stockhawk.rest;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -41,13 +42,14 @@ public class QuoteCursorAdapter extends CursorRecyclerViewAdapter<QuoteCursorAda
 
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-		robotoLight = Typeface.createFromAsset(mContext.getAssets(), "fonts/Roboto-Light.ttf");
+		robotoLight = Typeface.createFromAsset(mContext.getAssets(), mContext.getString(R.string.fontsroboto));
 		View itemView = LayoutInflater.from(parent.getContext())
 				.inflate(R.layout.list_item_quote, parent, false);
 		ViewHolder vh = new ViewHolder(itemView);
 		return vh;
 	}
 
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	@Override
 	public void onBindViewHolder(final ViewHolder viewHolder, final Cursor cursor) {
 		viewHolder.symbol.setText(cursor.getString(cursor.getColumnIndex("symbol")));

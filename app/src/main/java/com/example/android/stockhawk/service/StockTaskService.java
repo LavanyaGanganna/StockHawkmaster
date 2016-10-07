@@ -178,7 +178,7 @@ public class StockTaskService extends GcmTaskService {
 											new Runnable() {
 												public void run() {
 													// yourContext is Activity or Application context
-													Toast.makeText(mContext, "Added to Database", Toast.LENGTH_SHORT).show();
+													Toast.makeText(mContext, R.string.adddatabase, Toast.LENGTH_SHORT).show();
 												}
 											}
 									);
@@ -195,7 +195,7 @@ public class StockTaskService extends GcmTaskService {
 										new Runnable() {
 											public void run() {
 												// yourContext is Activity or Application context
-												Toast.makeText(mContext, "wrong stock symbol input", Toast.LENGTH_SHORT).show();
+												Toast.makeText(mContext, R.string.wronginput, Toast.LENGTH_SHORT).show();
 											}
 										}
 								);
