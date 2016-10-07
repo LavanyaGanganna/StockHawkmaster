@@ -16,12 +16,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
@@ -81,6 +81,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 	String symbolname, companyname;
 	@BindView(R.id.progressbar)
 	ProgressBar progressBar;
+	Toolbar mToolbar;
 	@BindView(R.id.emptyView_acitivity_my_stocks)
 	TextView emptytext;
 	public static final int STATUS_ERROR_JSON = 1;
@@ -101,7 +102,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 		isConnected = activeNetwork != null &&
 				activeNetwork.isConnectedOrConnecting();
 		setContentView(R.layout.activity_my_stocks);
-		Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+		mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(mToolbar);
 		ButterKnife.bind(this);
 
@@ -110,7 +111,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 		mServiceIntent = new Intent(this, StockIntentService.class);
 		if (savedInstanceState == null) {
 			// Run the initialize task service so that some stocks appear upon an empty database
-			mServiceIntent.putExtra("tag", "init");
+			//	mServiceIntent.putExtra("tag", "init");
+			mServiceIntent.putExtra(getString(R.string.tagstr), getString(R.string.init));
 			if (isConnected) {
 				startService(mServiceIntent);
 			} else {
@@ -174,7 +176,8 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 											return;
 										} else {
 											// Add the stock to DB
-											mServiceIntent.putExtra("tag", "add");
+											//	mServiceIntent.putExtra("tag", "add");
+											mServiceIntent.putExtra(getString(R.string.tagstr), getString(R.string.add));
 											mServiceIntent.putExtra(getString(R.string.symbol), input.toString().toUpperCase());
 											startService(mServiceIntent);
 										}
@@ -275,10 +278,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
 	}
 
 	public void restoreActionBar() {
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setTitle(mTitle);
+		mToolbar.setTitle(mTitle);
 	}
 
 	@Override

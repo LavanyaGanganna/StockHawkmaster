@@ -90,7 +90,7 @@ public class StockTaskService extends GcmTaskService {
 			setStockStatus(mContext, MyStocksActivity.STATUS_ERROR_SERVER);
 			e.printStackTrace();
 		}
-		if (params.getTag().equals("init") || params.getTag().equals("periodic")) {
+		if (params.getTag().equals(mContext.getString(R.string.init)) || params.getTag().equals(mContext.getString(R.string.periodic))) {
 			isUpdate = true;
 			initQueryCursor = mContext.getContentResolver().query(QuoteProvider.Quotes.CONTENT_URI,
 					new String[]{"Distinct " + QuoteColumns.SYMBOL}, null,
@@ -120,10 +120,11 @@ public class StockTaskService extends GcmTaskService {
 					e.printStackTrace();
 				}
 			}
-		} else if (params.getTag().equals("add")) {
+		} else if (params.getTag().equals(mContext.getString(R.string.add))) {
 			isUpdate = false;
 			// get symbol from params.getExtra and build query
-			String stockInput = params.getExtras().getString("symbol");
+			//	String stockInput = params.getExtras().getString("symbol");
+			String stockInput = params.getExtras().getString(mContext.getString(R.string.symbol));
 			try {
 				urlStringBuilder.append(URLEncoder.encode("\"" + stockInput + "\")", "UTF-8"));
 			} catch (UnsupportedEncodingException e) {
